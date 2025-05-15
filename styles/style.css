@@ -99,21 +99,21 @@ div:nth-of-type(3) {
 }
 
 
-
 ul {
   display: grid;
   transform-style: preserve-3d;
-  animation: rotateSlot 15s linear infinite;
+  transform: perspective(450px) rotateX(20deg);
   position: relative;
   margin-left: 10em;
 }
 
 
-
-
 @keyframes rotateSlot {
-  0% {transform: perspective(450px) rotateX(0deg)}
-  to {transform: perspective(450px) rotateX(-360deg)}
+  0% {transform: perspective(450px) rotateX(20deg)}
+  10% {transform: perspective(450px) rotateX(40deg)}
+  80% {transform: perspective(450px) rotateX(-1060deg)}
+  90% {transform: perspective(450px) rotateX(-1040deg)}
+  100% {transform: perspective(450px) rotateX(-1060deg)}
 }
 
 ul li {
@@ -151,6 +151,20 @@ ul li p {
     background-color: var(--darker-bg-clr);
 }
 
+
+
+body:has(input[type="checkbox"]:checked) div ul {
+      animation: rotateSlot 8s linear;
+}
+
+
+body:has(input[type="checkbox"]:checked) div:nth-of-type(2) ul {
+      animation-delay: .5s;
+}
+
+body:has(input[type="checkbox"]:checked) div:nth-of-type(3) ul {
+      animation-delay: 1s;
+}
 
 
 
